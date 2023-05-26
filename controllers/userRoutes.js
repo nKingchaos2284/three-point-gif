@@ -16,7 +16,6 @@ router.post('/signup', async (req, res) => {
         console.error(err)
         res.status(400).json(err);
     }
-<<<<<<< HEAD
 });
 
 // login
@@ -50,6 +49,4 @@ router.post('/signin', async (req, res) => {
     } catch (err) {
         res.status(400).json(err);
     }
-=======
->>>>>>> 8f94ea8218f29c682a8c6c41f9bbcf255763afcb
 });
