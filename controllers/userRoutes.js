@@ -50,3 +50,18 @@ router.post('/signin', async (req, res) => {
         res.status(400).json(err);
     }
 });
+
+
+//log out
+router.get('/signOut', (req, res) => {
+    if (req.session.logged_in) {
+        req.session.destroy(() => {
+            res.render('SignInPage');
+
+        });
+    } else {
+        res.status(404).end();
+    }
+});
+
+module.exports = router;
