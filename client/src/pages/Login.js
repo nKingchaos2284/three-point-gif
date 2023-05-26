@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { LOGIN_MUTATION } from '../utils/mutations';
+import AuthService from '../utils/auth';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -12,6 +13,8 @@ const Login = () => {
     e.preventDefault();
     login({ variables: { email, password } })
       .then((response) => {
+        const token = response.data.login.token;
+        AuthService.login(token);
         console.log(response.data);
       })
       .catch((error) => {
@@ -21,7 +24,7 @@ const Login = () => {
 
   return (
     <div>
-      <h1>Login</h1>
+      <h1>Login Page</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="email"
