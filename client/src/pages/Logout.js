@@ -1,6 +1,7 @@
 import React from 'react';
 import { useMutation } from '@apollo/client';
 import { LOGOUT_MUTATION } from '../utils/mutations';
+import AuthService from '../utils/auth';
 
 const Logout = () => {
   const [logout, { loading, error }] = useMutation(LOGOUT_MUTATION);
@@ -8,6 +9,7 @@ const Logout = () => {
   const handleLogout = () => {
     logout()
       .then((response) => {
+        AuthService.logout();
         console.log('Logged out successfully');
       })
       .catch((error) => {
@@ -17,7 +19,7 @@ const Logout = () => {
 
   return (
     <div>
-      <h1>Logout</h1>
+      <h1>Logout Page</h1>
       <button onClick={handleLogout}>Logout</button>
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error.message}</p>}
