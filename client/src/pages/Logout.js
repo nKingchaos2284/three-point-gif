@@ -1,20 +1,28 @@
 import React from 'react';
-import axios from 'axios';
+import { useMutation } from '@apollo/client';
+import { LOGOUT_MUTATION } from '../utils/mutations';
 
 const Logout = () => {
-    const handleLogout = async () => {
-        try {
-            const response = await axios.post('/api/logout');
-            console.log(response.data);
-        } catch (error) {
-            console.log(error);
-        }
-    };
+  const [logout, { loading, error }] = useMutation(LOGOUT_MUTATION);
 
-    return (
-        <div>
-            <h1>Logout</h1>
-            <button onClick={handleLogout}>Logout</button>
-        </div>
-    );
+  const handleLogout = () => {
+    logout()
+      .then((response) => {
+        console.log('Logged out successfully');
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  return (
+    <div>
+      <h1>Logout</h1>
+      <button onClick={handleLogout}>Logout</button>
+      {loading && <p>Loading...</p>}
+      {error && <p>Error: {error.message}</p>}
+    </div>
+  );
 };
+
+export default Logout;
