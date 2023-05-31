@@ -19,7 +19,7 @@ router.post('/signup', async (req, res) => {
 });
 
 // login
-router.post('/signin', async (req, res) => {
+router.post('/login', async (req, res) => {
     try {
         const userData = await User.findOne({ where: { email: req.body.email } });
 
@@ -53,7 +53,7 @@ router.post('/signin', async (req, res) => {
 
 
 //log out
-router.get('/signOut', (req, res) => {
+router.get('/logout', (req, res) => {
     if (req.session.logged_in) {
         req.session.destroy(() => {
             res.render('SignInPage');
