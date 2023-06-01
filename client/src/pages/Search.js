@@ -21,7 +21,6 @@ const Search = () => {
   return (
     <div>
       <h1>In A GIFFY</h1>
-      <h2>Search Results...</h2>
       <form onSubmit={handleSearch}>
         <input
           type="text"
