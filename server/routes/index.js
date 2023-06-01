@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const router = express.Router();
+const axios = require('axios');
 require('dotenv').config();
 
 // Serves the client-side application
@@ -17,7 +18,18 @@ router.get('/search', (req, res, next) => {
 });
 
 router.post('/search', (req, res, next) => {
-  // Handles search request
+  const query = req.body["giphy-query"];
+  const url = `http://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_API_KEY}&q=${query}&limit=20`;
+
+  axios.get(url)
+    .then(response => {
+      const searchResultUrl = response.data.data;
+      res.json({ searchResultUrl });
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({ error: 'Internal server error' });
+    });
 });
 
 module.exports = router;
