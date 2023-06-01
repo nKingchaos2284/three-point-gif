@@ -1,23 +1,21 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Schema, model } = require('mongoose');
 
-class Gif extends Model { }
-
-Gif.init(
-    {
-        id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            primaryKey: true,
-            autoIncrement: true,
-        },
+const gifSchema = new Schema({
+    id: {
+        type: String,
+        required: true,
+        unique: true,
     },
-    {
-        sequelize,
-        freezeTableName: true,
-        underscored: true,
-        modelName: 'gif',
-    }
-);
+    url: {
+        type: String,
+        required: true,
+    },
+    title: {
+        type: String,
+        required: true,
+    },
+});
+
+const Gif = model('Gif', gifSchema);
 
 module.exports = Gif;
