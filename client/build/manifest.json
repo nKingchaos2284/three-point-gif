@@ -1,0 +1,8 @@
+{
+    "short_name": "In A GIFFY",
+    "name": "In A GIFFY GIF Search",
+    "start_url": "/",
+    "display": "standalone",
+    "theme_color": "#000000",
+    "background_color": "#ffffff"
+  }
