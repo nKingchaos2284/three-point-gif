@@ -1,11 +1,11 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import Search from './pages/Search';
-import Login from './pages/Login';
-import Logout from './pages/Logout';
-import SignUp from './pages/SignUp';
-import NotFound from './pages/NotFound';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Search from "./pages/Search";
+import Login from "./pages/Login";
+import Logout from "./pages/Logout";
+import SignUp from "./pages/SignUp";
+import NotFound from "./pages/NotFound";
 
 const App = () => {
   return (

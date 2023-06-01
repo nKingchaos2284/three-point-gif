@@ -1,4 +1,4 @@
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -10,8 +10,8 @@ body {
 }
 
 h1 {
-  color: #10B387;
-  font-family: 'Changa One', cursive;
+  color: #10b387;
+  font-family: "Changa One", cursive;
   font-size: 4em;
   text-align: center;
   padding-top: 1em;
@@ -36,7 +36,7 @@ h1 {
   border: 2px;
   border-radius: 6px;
   background-color: #040b1a;
-  padding: .3em;
+  padding: 0.3em;
 }
 
 ::placeholder {
@@ -52,8 +52,8 @@ input {
   border-radius: 6px;
   background-color: #040b1a;
   color: #00e9ab;
-  padding: .3em;
-  margin: .3em;
+  padding: 0.3em;
+  margin: 0.3em;
   justify-content: space-around;
 }
 
@@ -62,7 +62,7 @@ a {
 }
 
 .navbar-brand {
-  font-family: 'Changa One', cursive;
+  font-family: "Changa One", cursive;
   font-size: 2em;
   text-align: left;
 }

@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { useMutation } from '@apollo/client';
-import { SIGNUP_MUTATION } from '../utils/mutations';
+import React, { useState } from "react";
+import { useMutation } from "@apollo/client";
+import { SIGNUP_MUTATION } from "../utils/mutations";
 
 const SignUp = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const [signup, { loading, error }] = useMutation(SIGNUP_MUTATION);
 

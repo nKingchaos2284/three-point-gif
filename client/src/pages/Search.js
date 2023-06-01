@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { useQuery } from '@apollo/client';
-import { SEARCH_GIFS_QUERY } from '../utils/queries';
-import AuthService from '../utils/auth';
+import React, { useState } from "react";
+import { useQuery } from "@apollo/client";
+import { SEARCH_GIFS_QUERY } from "../utils/queries";
+import AuthService from "../utils/auth";
 
 const Search = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const { loading, error, data } = useQuery(SEARCH_GIFS_QUERY, {
     variables: { searchTerm },
   });

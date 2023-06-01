@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import AuthService from '../utils/auth';
+import React, { useState, useEffect } from "react";
+import { Link, useHistory } from "react-router-dom";
+import AuthService from "../utils/auth";
 
 const Home = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const history = useHistory();
   const isAuthenticated = AuthService.isLoggedIn();
 
@@ -14,7 +14,7 @@ const Home = () => {
 
   const handleLogout = () => {
     AuthService.logout();
-    history.push('/login');
+    history.push("/login");
   };
 
   return (

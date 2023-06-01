@@ -30,7 +30,7 @@ To deploy this project run
 npm i axios
 npm i dotenv
 npm i express
-npm i express.handlebars
+npm i express-handlebars
 npm i handlebars
 npm i mysql
 npm i mysql2
@@ -49,7 +49,6 @@ To Heroku hosted application
 
  https://sheltered-island-76240.herokuapp.com/
 
-
 ## Screenshots
 
 ![Screenshot 2023-04-06 151215](https://user-images.githubusercontent.com/119367684/230516845-d81774fa-caf9-439b-8b44-400235438013.png)
@@ -59,8 +58,3 @@ To Heroku hosted application
 ## License
 
 MIT License
-
-[deployment]: https://github.com/bananas-pajamas/blob/main/README.md#installation
-[🔗 links]: https://github.com/bananas-pajamas/blob/main/README.md#🔗links
-[screenshots]: https://github.com//bananas-pajamas/blob/main/README.md#screenshots
-[license]: https://github.com//bananas-pajamas/blob/main/README.md#license
