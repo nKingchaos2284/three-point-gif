@@ -18,7 +18,7 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <header>
       <h1>In A GIFFY</h1>
       <form onSubmit={handleSearch}>
         <input
@@ -41,7 +41,7 @@ const Home = () => {
           </Link>
         </>
       )}
-    </div>
+    </header>
   );
 };
 
