@@ -1,20 +1,39 @@
-const express = require("express");
-const routes = require("./routes");
-const path = require("path");
+const express = require('express');
+const path = require('path');
+const cors = require('cors');
+const mongoose = require('mongoose');
+require('dotenv').config();
 
-// import sequelize connection
-const sequelize = require("./config/connection");
+// Create Express app
 const app = express();
-const PORT = process.env.PORT || 3001;
 
+// Middleware
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
 
-// turn on routes
-app.use(routes);
+// Connect to MongoDB
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+  .then(() => {
+    console.log('Connected to MongoDB');
+  })
+  .catch((error) => {
+    console.error('Error connecting to MongoDB:', error);
+  });
 
-// turn on connection to db and server
-sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log(`Now Listening On Port ${PORT}`));
+// API routes
+const indexRouter = require('./routes/index');
+app.use('/api', indexRouter);
+
+// Serve the client-side application
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+});
+
+// Start the server
+const port = process.env.PORT || 5000;
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
 });
