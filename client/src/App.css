@@ -1,11 +1,4 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    display: flex;
-  }
-  
-  body {
+body {
     background-color: #040b1a;
   }
   

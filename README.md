@@ -47,7 +47,7 @@ node server.js
 
 To Heroku hosted application
 
- https://sheltered-island-76240.herokuapp.com/
+https://sheltered-island-76240.herokuapp.com/
 
 ## Screenshots
 
