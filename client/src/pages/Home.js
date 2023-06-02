@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
+import axios from "axios";
 import AuthService from "../utils/auth";
 
 const Home = () => {
@@ -9,7 +10,21 @@ const Home = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    history.push(`/search/${searchTerm}`);
+
+    if (searchTerm.trim() === "") {
+      return;
+    }
+
+    axios
+      .post("/search", { "giphy-query": searchTerm })
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
+    setSearchTerm("");
   };
 
   const handleLogout = () => {

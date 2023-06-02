@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { useQuery } from "@apollo/client";
 import { SEARCH_GIFS_QUERY } from "../utils/queries";
 import AuthService from "../utils/auth";
@@ -9,9 +10,20 @@ const Search = () => {
     variables: { searchTerm },
   });
 
-  const handleSearch = (e) => {
+  const handleSearch = async (e) => {
     e.preventDefault();
-    console.log(data.gifs);
+    
+    try {
+      const response = await axios.post("/search", {
+        "giphy-query": searchTerm,
+      });
+      
+      const searchResultUrl = response.data.searchResultUrl;
+      console.log(searchResultUrl);
+
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   if (!AuthService.isLoggedIn()) {
