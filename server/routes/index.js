@@ -1,3 +1,4 @@
+const userRoutes = require('../controllers/userRoutes');
 const express = require('express');
 const path = require('path');
 const router = express.Router();
@@ -5,11 +6,11 @@ const axios = require('axios');
 require('dotenv').config();
 
 // Serves the client-side application
-router.use(express.static(path.join(__dirname, '../build')));
-
+router.use(express.static(path.join(__dirname, '../client/build')));
+router.use("/user", userRoutes);
 // Defines a route that serves the client-side application
 router.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../build/index.html'));
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
 // Existing routes
