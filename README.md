@@ -4,7 +4,7 @@
 
 ## Description
 
-Our motivation to make this project was to have a simple GIF search engine that loads a random GIF upon visiting the homepage. One can also search for 20 GIFs at a time for each search prompt. We built this project to easily be able to search for a specific GIF to be able to use. Now with this project completed, we have learned throughout this project how to run a API fetch request from the backend of an application and connect it to the front end.
+Our motivation to make this project was to have a simple GIF search engine by utilizing a MERN stack single-page application with Sign Up, Login and Logout. One can get 20 GIFs at a time from each search prompt. We built this project to easily be able to search for a specific GIF to be able to use. Now with this project completed, we have learned throughout this project how to create an application that works with real-world data to solve a real-world challenge, with a focus on data and user demand.
 
 ## Table of Contents
 
@@ -26,21 +26,9 @@ Our motivation to make this project was to have a simple GIF search engine that 
 
 To deploy this project run
 
-```bash
-npm i axios
-npm i dotenv
-npm i express
-npm i express-handlebars
-npm i handlebars
-npm i mysql
-npm i mysql2
-npm i node
-npm i nodemon
-npm i sequelize
-mysql -u root -p
-SOURCE db/schema.sql;
-exit
-node server.js
+```bash for root file
+npm i
+npm run develop
 ```
 
 ## 🔗 Links
