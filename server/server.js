@@ -1,3 +1,4 @@
+const userRoutes = require('./controllers/userRoutes');
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
@@ -26,9 +27,9 @@ mongoose.connect(process.env.MONGODB_URI, {
 // API routes
 const indexRouter = require('./routes/index');
 app.use('/api', indexRouter);
-
+app.use('/user', userRoutes);
 // Serve the client-side application
-  app.use(express.static(path.join(__dirname, '../client/build')));
+app.use(express.static(path.join(__dirname, '../client/build')));
 
 
 app.get('/', (req, res) => {
