@@ -1,22 +1,18 @@
 import React, { useState } from "react";
-import { useMutation } from "@apollo/client";
-import { SIGNUP_MUTATION } from "../utils/mutations";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [signup, { loading, error }] = useMutation(SIGNUP_MUTATION);
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    signup({ variables: { email, password } })
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    fetch ("/user/signup", {
+      method: "POST", 
+      body: {email:email, password:password}
+    }).then((res)=>res.json()).then((data)=>{
+      console.log(data);
+    })
+    
   };
 
   return (
@@ -37,8 +33,6 @@ const SignUp = () => {
         />
         <button type="submit">Sign Up</button>
       </form>
-      {loading && <p>Loading...</p>}
-      {error && <p>Error: {error.message}</p>}
     </div>
   );
 };
