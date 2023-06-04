@@ -45,10 +45,10 @@ const Search = () => {
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error.message}</p>}
       {data && data.gifs && (
-        <div>
+        <div className="grid-container">
           <h2>Search Results:</h2>
           {data.gifs.map((gif) => (
-            <div key={gif.id}>
+            <div id="search-result" key={gif.id}>
               <img src={gif.url} alt={gif.title} />
               <p>{gif.title}</p>
             </div>
