@@ -35,7 +35,7 @@ const Home = () => {
   return (
     <header>
       <h1>In A GIFFY</h1>
-      <form onSubmit={handleSearch}>
+      <form className="searchbar-form" onSubmit={handleSearch}>
         <input
           type="text"
           placeholder="Search for a GIF here!"
