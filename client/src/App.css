@@ -1,98 +1,102 @@
-  body {
-    background-color: #040b1a;
-  }
-  
-  p {
-    color: #00e9ab;
-  }
+ body {
+  background-color: #040b1a;
+}
 
-  h1 {
-    color: #040b1a;
-    font-family: 'Changa One', cursive;
-    font-size: 4em;
-    text-align: center;
-    float: left;
-    padding-top: 1em;
-    padding-right: 1em;
-  }
+h1 {
+  color: #10B387;
+  font-family: 'Changa One', cursive;
+  font-size: 4em;
+  text-align: center;
+  padding-top: 1em;
+}
 
-  h2 {
-    color: #040b1a;
-    font-family: 'Changa One', cursive;
-    font-size: 3em;
-    text-align: center;
-    float: left;
-    padding-top: 1em;
-    padding-right: 1em;
-  }
-  
-  header {
-    background-color: #00e9ab;
-    display: flex;
-    position: relative;
-  }
-  
-  .searchbar-form {
-    float: center;
-    padding: 6px 10px;
-    margin-top: 8px;
-    margin-right: 16px;
-    font-size: 17px;
-    cursor: pointer;
-    border-radius: 5px;
-    justify-content: space-between;
-  }
-  
-  .searchbar {
-    border: 2px;
-    border-radius: 6px;
-    background-color: #040b1a;
-    padding: .3em;
-  }
-  
-  ::placeholder {
-    color: #00e9ab;
-  }
-  
-  input {
-    color: #00e9ab;
-  }
-  
-  button {
-    border: 2px;
-    border-radius: 6px;
-    background-color: #040b1a;
-    color: #00e9ab;
-    padding: .3em;
-    margin: .3em;
-    justify-content: space-around;
-  }
-  
-  a {
-    color: #040b1a;
-  }
-  
-  .navbar-brand {
-    font-family: 'Changa One', cursive;
-    font-size: 2em;
-    text-align: left;
-  }
-  
-  main {
-    padding: 2em;
-  }
-  
-  .grid-container {
-    display: inline-block;
-    grid-template-columns: repeat(3, 1fr);
-  }
-  
-  #search-result {
-    background-color: #62ecbc;
-    display: flex;
-    padding: 1em;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: 1.5em;
-    border-radius: 0.5em;
-  }
+.navbar {
+  background-color: #00e9ab;
+}
+
+.searchbar-form {
+  float: center;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+  cursor: pointer;
+  border-radius: 5px;
+  justify-content: space-between;
+}
+
+.searchbar {
+  border: 2px;
+  border-radius: 6px;
+  background-color: #040b1a;
+  padding: .3em;
+}
+
+::placeholder {
+  color: #00e9ab;
+}
+
+input {
+  color: #00e9ab;
+  border: 2px;
+  border-radius: 6px;
+  float: center;
+  background-color: #040b1a;
+  padding: .3em;
+  margin-right: 16px;
+  justify-content: space-between;
+}
+
+.search-button {
+  border: 2px;
+  border-radius: 6px;
+  background-color: #040b1a;
+  color: #00e9ab;
+  padding: .3em;
+  margin: .3em;
+  justify-content: space-around;
+}
+
+.navbar-brand,
+h2,
+h3 {
+  font-family: 'Changa One', cursive;
+  font-size: 2em;
+  text-align: left;
+  color: #040b1a;
+  text-decoration: none;
+}
+
+main {
+  padding: 2em;
+}
+
+.grid-container {
+  display: inline-block;
+}
+
+#search-result {
+  background-color: #62ecbc;
+  display: flex;
+  padding: 1em;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 1.5em;
+  border-radius: 0.5em;
+}
+
+.welcome {
+  font-size: 4em;
+}
+
+.info {
+  color: #10B387;
+  font-family: 'Changa One', cursive;
+  text-align: center;
+  padding-top: 1em;
+  font-size: 1.5em;
+}
+
+p {
+  color: #00e9ab;
+}
