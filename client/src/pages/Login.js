@@ -24,12 +24,12 @@ const Login = () => {
   };
 
   return (
-    <header>
-      <h1>Login Page</h1>
+    <header class="navbar">
+      <h1 class="navbar-brand">Login Page</h1>
       <Link to="/">
       <h2>In A GIFFY</h2>
       </Link>
-      <form className="searchbar-form" onSubmit={handleSubmit}>
+      <form class="searchbar-form" onSubmit={handleSubmit}>
         <input
           type="email"
           placeholder="Email"
@@ -42,7 +42,7 @@ const Login = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Login</button>
+        <button class="search-button" type="submit">Login</button>
       </form>
     </header>
   );
