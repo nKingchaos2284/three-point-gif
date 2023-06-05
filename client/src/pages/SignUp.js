@@ -23,8 +23,8 @@ const SignUp = () => {
   
 
   return (
-    <header>
-      <h1>Sign Up</h1>
+    <header class="navbar">
+      <h1 class="navbar-brand">Sign Up</h1>
       <Link to="/">
       <h2>In A GIFFY</h2>
       </Link>
@@ -32,16 +32,18 @@ const SignUp = () => {
         <input
           type="email"
           placeholder="Email"
+          class="searchbar"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="password"
           placeholder="Password"
+          class="searchbar"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Sign Up</button>
+        <button class="search-button" type="submit">Sign Up</button>
       </form>
     </header>
   );
