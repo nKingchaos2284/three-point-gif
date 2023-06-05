@@ -1,31 +1,35 @@
 import React, { useState } from 'react';
-import { useMutation } from '@apollo/client';
-import { LOGIN_MUTATION } from '../utils/mutations';
-import AuthService from '../utils/auth';
+import { useHistory, Link } from 'react-router-dom';
+import axios from 'axios';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const history = useHistory();
 
-  const [login, { loading, error }] = useMutation(LOGIN_MUTATION);
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    login({ variables: { email, password } })
-      .then((response) => {
-        const token = response.data.login.token;
-        AuthService.login(token);
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    const data = { email, password };
+    try {
+      const response = await axios.post('/user/login', data);
+      const { user, token } = response.data;
+      console.log(user);
+
+      localStorage.setItem('token', token);
+
+      history.push('/');
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
-    <div>
+    <header>
       <h1>Login Page</h1>
-      <form onSubmit={handleSubmit}>
+      <Link to="/">
+      <h2>In A GIFFY</h2>
+      </Link>
+      <form className="searchbar-form" onSubmit={handleSubmit}>
         <input
           type="email"
           placeholder="Email"
@@ -40,9 +44,7 @@ const Login = () => {
         />
         <button type="submit">Login</button>
       </form>
-      {loading && <p>Loading...</p>}
-      {error && <p>Error: {error.message}</p>}
-    </div>
+    </header>
   );
 };
 
