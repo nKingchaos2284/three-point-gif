@@ -47,10 +47,10 @@ const Search = () => {
   }
 
   return (
-    <div>
-      <header>
+    <div class="box">
+      <header class="navbar">
         <Link to="/">
-          <h1>In A GIFFY</h1>
+          <h1 class="navbar-brand">In A GIFFY</h1>
         </Link>
         <form onSubmit={handleSearch}>
           <input
@@ -59,13 +59,13 @@ const Search = () => {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <button type="submit">Search</button>
+          <button class="search-button" type="submit">Search</button>
         </form>
       </header>
 
-      <div className="gif-list">
+      <div class="grid-container">
         {searchResultUrl.map((gif) => (
-          <div key={gif.id} className="gif-item">
+          <div key={gif.id} id="search-result">
             <img src={gif.images.original.url} alt={gif.title} />
           </div>
         ))}
