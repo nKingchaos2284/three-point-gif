@@ -1,8 +1,10 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from "react";
+import api from "../utils/api";
+import AuthService from "../utils/auth";
+import { Link } from 'react-router-dom';
+
 import { useQuery } from "@apollo/client";
 import { SEARCH_GIFS_QUERY } from "../utils/queries";
-import AuthService from "../utils/auth";
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -12,27 +14,40 @@ const Search = () => {
 
   const handleSearch = async (e) => {
     e.preventDefault();
-    
+
     try {
-      const response = await axios.post("/search", {
+      const response = await api.post("/api/search", {
         "giphy-query": searchTerm,
       });
-      
+
       const searchResultUrl = response.data.searchResultUrl;
       console.log(searchResultUrl);
-
     } catch (error) {
       console.error(error);
     }
   };
+
+  useEffect(() => {
+    const checkTokenExpiration = () => {
+      const tokenExpiration = AuthService.getTokenExpiration();
+
+      if (tokenExpiration && new Date() > tokenExpiration) {
+        AuthService.logout();
+      }
+    };
+
+    checkTokenExpiration();
+  }, []);
 
   if (!AuthService.isLoggedIn()) {
     return <p>Please log in to use the search feature.</p>;
   }
 
   return (
-    <div>
+    <header>
+      <Link to="/">
       <h1>In A GIFFY</h1>
+      </Link>
       <form onSubmit={handleSearch}>
         <input
           type="text"
@@ -55,7 +70,7 @@ const Search = () => {
           ))}
         </div>
       )}
-    </div>
+    </header>
   );
 };
 
