@@ -40,29 +40,33 @@ const Home = () => {
   };
 
   return (
-    <div>
-      <header>
+    <div class="box">
+      <nav class="navbar">
         <Link to="/">
-          <h1>In A GIFFY</h1>
+          <h2 class="navbar-brand">In A GIFFY</h2>
         </Link>
         <Link to="/search">
-          <h2>To Search Page</h2>
+          <h3>To Search Page</h3>
           </Link> 
         <form className="searchbar-form" onSubmit={handleSearch}>
         </form>
         {isLoggedIn ? (
-          <button onClick={handleLogout}>Logout</button>
+          <button class="search-button" onClick={handleLogout}>Logout</button>
         ) : (
           <>
             <Link to="/login">
-              <button>Login</button>
+              <button class="search-button">Login</button>
             </Link>
             <Link to="/signup">
-              <button>Sign Up</button>
+              <button class="search-button">Sign Up</button>
             </Link>
           </>
         )}
-      </header>
+      </nav>
+          <main>
+            <h1 class="welcome">Welcome To In A GIFFY!</h1>
+            <p class="info">Please log in or sign up to start searching for GIFs</p>
+          </main>
     </div>
   );
 };
