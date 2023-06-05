@@ -1,3 +1,4 @@
+const jwt = require('jsonwebtoken');
 const router = require("express").Router();
 const { User } = require("../models");
 
@@ -19,38 +20,34 @@ router.post("/signup", async (req, res) => {
 });
 
 // login
-router.post("/login", async (req, res) => {
+router.post('/login', async (req, res) => {
+  const { email, password } = req.body;
+
   try {
-    const userData = await User.findOne({ where: { email: req.body.email } });
+    const user = await User.findOne({ email });
 
-    if (!userData) {
-      res
-        .status(400)
-        .json({ message: "Incorrect email or password, please try again" });
-      return;
+    if (!user) {
+      return res.status(400).json({ message: 'Invalid email or password' });
     }
 
-    const validPassword = await userData.checkPassword(req.body.password);
-
-    if (!validPassword) {
-      res
-        .status(400)
-        .json({ message: "Incorrect email or password, please try again" });
-      return;
+    if (password !== user.password) {
+      return res.status(400).json({ message: 'Invalid email or password' });
     }
 
+    const token = jwt.sign({ user_id: user.id }, 'secret_octopus');
     req.session.save(() => {
-      req.session.user_id = userData.id;
+      req.session.user_id = user.id;
       req.session.logged_in = true;
 
-      res.json({ user: userData, message: "You are now logged in!" });
+      res.json({ user, token, message: 'You are now logged in!' });
     });
-  } catch (err) {
-    res.status(400).json(err);
+  } catch (error) {
+    res.status(500).json({ message: 'Internal server error' });
   }
 });
 
-//log out
+
+// log out
 router.get("/logout", (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {

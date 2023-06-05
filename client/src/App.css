@@ -2,10 +2,24 @@
     background-color: #040b1a;
   }
   
+  p {
+    color: #00e9ab;
+  }
+
   h1 {
     color: #040b1a;
     font-family: 'Changa One', cursive;
     font-size: 4em;
+    text-align: center;
+    float: left;
+    padding-top: 1em;
+    padding-right: 1em;
+  }
+
+  h2 {
+    color: #040b1a;
+    font-family: 'Changa One', cursive;
+    font-size: 3em;
     text-align: center;
     float: left;
     padding-top: 1em;
