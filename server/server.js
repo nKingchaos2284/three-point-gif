@@ -40,11 +40,15 @@ const verifyToken = (req, res, next) => {
   const token = req.headers.authorization;
 
   if (!token) {
+    console.log('Token missing');
     return res.status(401).json({ message: 'No token provided' });
   }
 
-  jwt.verify(token, 'secret_octopus', (err, decoded) => {
+  const tokenWithoutPrefix = token.split(' ')[1];
+
+  jwt.verify(tokenWithoutPrefix, 'secret_octopus', (err, decoded) => {
     if (err) {
+      console.log('Invalid token:', token);
       return res.status(401).json({ message: 'Invalid token' });
     }
 

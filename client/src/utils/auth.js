@@ -25,10 +25,21 @@ class AuthService {
 
   isTokenExpired(token) {
     const decoded = decode(token);
-    if (decoded.exp < Date.now() / 1000) {
-      return true;
+    if (!decoded.exp) {
+      return false;
     }
-    return false;
+    const expirationDate = new Date(0);
+    expirationDate.setUTCSeconds(decoded.exp);
+    return expirationDate < new Date();
+  }
+
+  getTokenExpiration() {
+    const token = this.getToken();
+    if (token) {
+      const decoded = decode(token);
+      return decoded.exp ? new Date(decoded.exp * 1000) : null;
+    }
+    return null;
   }
 }
 

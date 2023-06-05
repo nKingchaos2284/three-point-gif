@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -24,6 +25,9 @@ const SignUp = () => {
   return (
     <header>
       <h1>Sign Up</h1>
+      <Link to="/">
+      <h2>In A GIFFY</h2>
+      </Link>
       <form className="searchbar-form" onSubmit={handleSubmit}>
         <input
           type="email"

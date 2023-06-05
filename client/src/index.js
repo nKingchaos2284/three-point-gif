@@ -1,15 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { ApolloProvider, ApolloClient } from "@apollo/client";
+import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 import { BrowserRouter as Router } from "react-router-dom";
 import App from "./App";
-import "./App.css"
-import "./index.css"
+import "./App.css";
+import "./index.css";
 
-// renders App via apollo
+const client = new ApolloClient({
+  uri: "http://localhost:5000/graphql",
+  cache: new InMemoryCache(),
+});
+
+// Render App via Apollo
 ReactDOM.render(
   <React.StrictMode>
-    <ApolloProvider client={ApolloClient}>
+    <ApolloProvider client={client}>
       <Router>
         <App />
       </Router>
