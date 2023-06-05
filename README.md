@@ -1,28 +1,28 @@
-# In A GIFFY
+# In A GIFFY #
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Description
+## Description ##
 
 Our motivation to make this project was to have a simple GIF search engine by utilizing a MERN stack single-page application with Sign Up, Login and Logout. One can get 20 GIFs at a time from each search prompt. We built this project to easily be able to search for a specific GIF to be able to use. Now with this project completed, we have learned throughout this project how to create an application that works with real-world data to solve a real-world challenge, with a focus on data and user demand.
 
-## Table of Contents
+## Table of Contents ##
+- Deployment
 
-[Deployment][deployment]
+- Links
 
-[🔗 Links][🔗 links]
+- Screenshots
 
-[Screenshots][screenshots]
+- License
 
-[License][license]
-
-## Authors
+## Authors ##
 
 - https://github.com/nKingchaos2284
 - https://github.com/KyleKryst
 - https://github.com/Rmontgomery4801
+- https://github.com/J18XX
 
-## Deployment
+## Deployment ##
 
 To deploy this project run
 
@@ -31,18 +31,24 @@ npm i
 npm run develop
 ```
 
-## 🔗 Links
+## Links ##
 
 To Heroku hosted application
 
  https://sheltered-island-76240.herokuapp.com/
 
-## Screenshots
+## Screenshots ##
 
-![Screenshot 2023-04-06 151215](https://user-images.githubusercontent.com/119367684/230516845-d81774fa-caf9-439b-8b44-400235438013.png)
+![Screenshot 2023-06-05 121453](https://github.com/nKingchaos2284/three-point-gif/assets/119367684/b49c5951-319f-4ccc-b902-8e3a7aaa6be7)
 
-![Screenshot 2023-04-06 151331](https://user-images.githubusercontent.com/119367684/230516886-02aca9b0-8000-4ede-9b25-761ec54f4e84.png)
+![Screenshot 2023-06-05 121516](https://github.com/nKingchaos2284/three-point-gif/assets/119367684/fb38eab5-ad12-4c5f-aa97-d84d9f63b5ee)
 
-## License
+![Screenshot 2023-06-05 121621](https://github.com/nKingchaos2284/three-point-gif/assets/119367684/03a9cb2f-f3a7-4f75-81fb-8a91f75230ee)
+
+![Screenshot 2023-06-05 121017](https://github.com/nKingchaos2284/three-point-gif/assets/119367684/3e67506b-f829-46b1-9a2a-4a4101fb7ecb)
+
+![Screenshot 2023-06-05 121046](https://github.com/nKingchaos2284/three-point-gif/assets/119367684/2749a08a-f38c-4e90-8b75-4c8ddd3443aa)
+
+## License ##
 
 MIT License
