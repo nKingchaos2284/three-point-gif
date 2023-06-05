@@ -4,6 +4,7 @@ const path = require('path');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const session = require('express-session');
+const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 // Create Express app
@@ -34,13 +35,35 @@ mongoose.connect(process.env.MONGODB_URI, {
     console.error('Error connecting to MongoDB:', error);
   });
 
+// Verify Token middleware
+const verifyToken = (req, res, next) => {
+  const token = req.headers.authorization;
+
+  if (!token) {
+    console.log('Token missing');
+    return res.status(401).json({ message: 'No token provided' });
+  }
+
+  const tokenWithoutPrefix = token.split(' ')[1];
+
+  jwt.verify(tokenWithoutPrefix, 'secret_octopus', (err, decoded) => {
+    if (err) {
+      console.log('Invalid token:', token);
+      return res.status(401).json({ message: 'Invalid token' });
+    }
+
+    req.user_id = decoded.user_id;
+    next();
+  });
+};
+
 // API routes
 const indexRouter = require('./routes/index');
-app.use('/api', indexRouter);
+app.use('/api', verifyToken, indexRouter);
 app.use('/user', userRoutes);
+
 // Serve the client-side application
 app.use(express.static(path.join(__dirname, '../client/build')));
-
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
